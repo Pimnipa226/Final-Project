@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class = "heading">Search local Wikipedia articles</h1>
+    <form action="/results" method="post">
+            <label for = "artist_name" > Artist Name</label><br>
+            <input type="text" id = "artist_name" name = "artist_name">
+
+            <label for = "song_name" > Song Name</label><br>
+            <input type="text" id = "song_name" name = "song_name">
+
+            <input type="submit" value="SUBMIT" class = "submit_button">
+    </form>
+{% endblock %}
