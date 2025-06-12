@@ -1,0 +1,94 @@
+.lyrics form,
+.lyrics input,
+.lyrics button{
+    display: inline;
+}
+.lyrics button{
+    height: 30px;
+    text-decoration: underline;
+    background: none;
+    border: none;
+}
+.lyrics button img{
+    height: 15px;
+}
+.container{
+    width: 450px;
+    background-color: #ff8f60;
+    margin: 100px auto 100px auto;
+    padding: 50px;
+    min-height: 100vh;
+    box-shadow: 10px 21px 23px -2px rgba(0,0,0,0.75)
+}
+
+
+body{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+    background-image: url("albums_collage.jpg");
+    background-size: cover;
+}
+
+button{
+    font-size: 1.2em;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.search_box input{
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid rgb(76, 76, 76);
+}
+
+.search_box_label{
+    display: inline-block;
+    margin: 20px auto 10px auto;
+    font-weight: 600;
+    font-size: 1.1em
+}
+
+.search_box{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.submit_button{
+    margin: 20px calc(50% - 50px);
+    width: 100px!important;
+    font-size: 1.1em;
+    font-weight: 600;
+     background-color: #af3a19;
+    color: #ffe6a5;
+    cursor: pointer;
+}
+
+.submit_button:hover{
+    background-color: #ffe6a5;
+    color: #af3a19;
+}
+
+.background_container {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+    overflow: scroll;
+    background-color: rgba(255, 230, 165, 0.3);
+}
+
+.heading {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.definition_list{
+    line-height: 2em;
+}
