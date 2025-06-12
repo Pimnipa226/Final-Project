@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="background_container">
+<div class="container">
 <h1>{{ song.title }} by {{ song.artist }}</h1>
-<p>{{ song.lyrics|safe}}
-</p>
-</body>
-</html>
+<span class="lyrics">
+    {% for word in word_list %}
+        {% if word == "<br>" %}
+        <br><br>
+        {% else %}
+
+    <form class="lyrics_form" method = "post" action = "/definition">
+        <input type = "hidden" name = "word" value = "{{ word }}">
+        <button type = "submit" value = "word" class = "lyric_word">{{ word | safe }}</button>
+    </form>
+        {% endif %}
+    {% endfor %}
+</span>
+</div>
+</div>
+{% endblock %}

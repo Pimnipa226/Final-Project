@@ -2,12 +2,13 @@ import urllib
 import urllib.parse, urllib.request, urllib.error, json
 import pprint
 from lyricsgenius import Genius
+import keys
 
 def get_word_def_safe(word = "test"):
     try:
         base_url = "https://www.dictionaryapi.com/api/v3/references/collegiate/json/"
 
-        params = {"key": "f3ec4512-6658-4e54-8d83-a1c392c108fe"}
+        params = {"key": keys.MERRIAM_WEBSTER_KEY}
 
         url = base_url + word + "?" + urllib.parse.urlencode(params)
 
@@ -25,21 +26,21 @@ def get_word_def_safe(word = "test"):
         print("Reason:", e.reason)
         return
 
-pprint.pprint(get_word_def_safe("cough"))
+# pprint.pprint(get_word_def_safe("cough"))
 
 
-def print_definition(word):
-    def_list = get_word_def_safe(word)
-    def_num = 0
-    print(word)
-    for definition in def_list:
-        def_num += 1
-        print(str(def_num) + ". " + definition)
-    print("\n")
-
-word_list = ["page", "pit", "novel"]
-for word in word_list:
-    print_definition(word)
+# def print_definition(word):
+#     def_list = get_word_def_safe(word)
+#     def_num = 0
+#     # print(word)
+#     for definition in def_list:
+#         def_num += 1
+#         print(str(def_num) + ". " + definition)
+#     print("\n")
+#
+# word_list = ["page", "pit", "novel"]
+# for word in word_list:
+#     print_definition(word)
 
 # input_word = input("Enter a word: ")
 # print_definition(input_word)
@@ -79,7 +80,7 @@ for word in word_list:
 
 def artist_songs(song_name, artist_name=None):
 
-    genius = Genius("h108TqRwV5pR1ANBoVIKK9Nl21m8xCHq0K037IQ80i_vGsR3vsLrCQgZ7kPXHell")
+    genius = Genius(keys.GENIUS_KEY)
     if artist_name is not None:
         song = genius.search_song(song_name, artist_name)
     else:
@@ -97,7 +98,7 @@ def artist_songs(song_name, artist_name=None):
     lyrics_text = song.lyrics
     lines = lyrics_text.split("\n")
     lyrics_only = "\n".join(lines[1:])
-    html_text = lyrics_only.replace("\n", "<br>")
+    html_text = lyrics_only.replace("\n", " <br> ")
     song_results = {
         "title" : song.title,
         "artist" : song.artist,

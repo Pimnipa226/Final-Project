@@ -84,8 +84,15 @@ def results():
         song_name = request.form['song_name']
         artist_name = request.form['artist_name']
         song_data = functions.artist_songs(song_name, artist_name)
-        return render_template('results.html', song=song_data)
+        lyrics_words = song_data['lyrics'].split()
+        return render_template('results.html', song=song_data, word_list = lyrics_words)
 
+@app.route('/definition', methods = ['POST'])
+def definition():
+    word = request.form['word']
+    definition = functions.get_word_def_safe(word)
+    def_dictionary = {"word": word, "meaning": definition}
+    return render_template("definition.html", definition = def_dictionary)
 
 if __name__ == '__main__':
     app.run(debug=True)
